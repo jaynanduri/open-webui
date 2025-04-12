@@ -31,6 +31,10 @@ RUN npm ci
 
 COPY . .
 ENV APP_BUILD_HASH=${BUILD_HASH}
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+# Update caniuse-lite database
+RUN npx update-browserslist-db@latest
+
 RUN npm run build
 
 ######## WebUI backend ########
@@ -132,7 +136,7 @@ RUN if [ "$USE_OLLAMA" = "true" ]; then \
 # install python dependencies
 COPY --chown=$UID:$GID ./backend/requirements.txt ./requirements.txt
 
-RUN pip3 install --no-cache-dir uv && \
+RUN pip3 install uv && \
     if [ "$USE_CUDA" = "true" ]; then \
     # If you use CUDA the whisper and embedding model will be downloaded on first use
     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/$USE_CUDA_DOCKER_VER --no-cache-dir && \
