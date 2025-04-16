@@ -1,4 +1,4 @@
-import { getPostById } from '$lib/apis/firestore/firestore-queries';
+import { getDocByCollectionAndId } from '$lib/apis/firestore/firestore-queries';
 import { json } from '@sveltejs/kit';
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -10,7 +10,7 @@ export async function GET({ params }: RequestEvent) {
   }
 
   try {
-    const post = await getPostById( 'jobs', id );
+    const post = await getDocByCollectionAndId( 'jobs', id );
     return json(post);
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Document not found';

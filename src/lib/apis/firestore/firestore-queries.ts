@@ -3,7 +3,7 @@ import { db } from './firestore-admin';
 /**
  * Get a Firestore document by ID
  */
-export async function getPostById(collectionName: string, docId: string) {
+export async function getDocByCollectionAndId(collectionName: string, docId: string) {
   try {
     const docRef = db.collection(collectionName).doc(docId);
     const docSnap = await docRef.get();
