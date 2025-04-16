@@ -26,6 +26,8 @@
 	import AdjustmentsHorizontal from '../icons/AdjustmentsHorizontal.svelte';
 
 	import PencilSquare from '../icons/PencilSquare.svelte';
+	import Home from '../icons/Home.svelte';
+	import {goto} from "$app/navigation";
 
 	const i18n = getContext('i18n');
 
@@ -39,6 +41,9 @@
 
 	let showShareChatModal = false;
 	let showDownloadChatModal = false;
+	const goToFeed = async () => {
+		await goto('/feed');
+	};
 </script>
 
 <ShareChatModal bind:show={showShareChatModal} chatId={$chatId} />
@@ -115,6 +120,23 @@
 						</button>
 					</Menu>
 				{/if}
+
+				<Tooltip content={$i18n.t('Feed')}>
+					<button
+							id="feed-button"
+							class=" flex {$showSidebar
+							? 'md:hidden'
+							: ''} cursor-pointer px-2 py-2 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-850 transition"
+							on:click={() => {
+							goToFeed();
+						}}
+							aria-label="New Chat"
+					>
+						<div class=" m-auto self-center">
+							<Home className=" size-5" strokeWidth="2" />
+						</div>
+					</button>
+				</Tooltip>
 
 				<Tooltip content={$i18n.t('Controls')}>
 					<button
