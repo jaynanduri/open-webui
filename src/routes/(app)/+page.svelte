@@ -127,8 +127,8 @@
 
 			<nav class="flex items-center space-x-6">
 				<a href="/" class="flex flex-col items-center text-gray-500 hover:text-black">
-					<Home size={20} />
-					<span class="text-xs mt-1">Home</span>
+					<Home class="text-blue-700" size={20} />
+					<span class=" text-blue-700 text-xs mt-1">Home</span>
 				</a>
 				<a href="#" class="flex flex-col items-center text-gray-500 hover:text-black">
 					<Users size={20} />
