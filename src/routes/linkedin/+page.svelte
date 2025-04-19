@@ -24,7 +24,7 @@
 	let messages = [
 		{
 			id: 1,
-			text: "Hello! I'm your professional assistant. How can I help you today?",
+			text: "Hello! I'm your professional assistant. Looking for job posts, recruiter insights, or interview prep help?",
 			sender: 'bot',
 			liked: false,
 			disliked: false

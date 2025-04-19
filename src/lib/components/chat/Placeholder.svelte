@@ -200,7 +200,9 @@
 					{transparentBackground}
 					{stopResponse}
 					{createMessagePair}
-					placeholder={$i18n.t('How can I help you today?')}
+					placeholder={$i18n.t(
+						'Looking for job posts, recruiter insights, or interview prep help?'
+					)}
 					on:upload={(e) => {
 						dispatch('upload', e.detail);
 					}}
