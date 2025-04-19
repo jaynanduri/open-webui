@@ -42,7 +42,7 @@
 	let showShareChatModal = false;
 	let showDownloadChatModal = false;
 	const goToFeed = async () => {
-		await goto('/');
+		await goto('/linkedin');
 	};
 </script>
 

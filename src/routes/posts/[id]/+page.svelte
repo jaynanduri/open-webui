@@ -96,7 +96,7 @@
 			</div>
 
 			<nav class="flex items-center space-x-6">
-				<a href="/" class="flex flex-col items-center text-gray-500 hover:text-black">
+				<a href="/linkedin" class="flex flex-col items-center text-gray-500 hover:text-black">
 					<Home size={20} />
 					<span class="text-xs mt-1">Home</span>
 				</a>
@@ -108,7 +108,7 @@
 					<Briefcase size={20} />
 					<span class="text-xs mt-1">Jobs</span>
 				</a>
-				<a href="/lens" class="flex flex-col items-center text-gray-500 hover:text-black relative">
+				<a href="/" class="flex flex-col items-center text-gray-500 hover:text-black relative">
 					<BrainCircuit class="text-blue-700" size={20} />
 					<span class="text-blue-700 text-xs mt-1">Lens</span>
 				</a>

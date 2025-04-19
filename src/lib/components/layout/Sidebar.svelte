@@ -510,11 +510,11 @@
 			<a
 				id="sidebar-new-chat-button"
 				class="flex justify-between items-center flex-1 rounded-lg px-2 py-1 h-full text-right hover:bg-gray-100 dark:hover:bg-gray-900 transition no-drag-region"
-				href="/lens"
+				href="/"
 				draggable="false"
 				on:click={async () => {
 					selectedChatId = null;
-					await goto('/lens');
+					await goto('/');
 					const newChatButton = document.getElementById('new-chat-button');
 					setTimeout(() => {
 						newChatButton?.click();
