@@ -46,7 +46,8 @@
 			timeAgo: '2h',
 			content:
 				"Just finished the redesign for our client's e-commerce platform. Increased conversion rates by 24% through improved navigation and checkout flow. #UXDesign #ConversionOptimization",
-			image: '/api/placeholder/600/400',
+			image:
+				'https://infostride.com/wp-content/uploads/2024/01/How-Much-Does-eCommerce-Website-Development-Cost-1200x717.png',
 			likes: 128,
 			comments: 14,
 			shares: 5,
