@@ -513,6 +513,7 @@
 				href="/"
 				draggable="false"
 				on:click={async () => {
+					console.log('new chat button clicked');
 					selectedChatId = null;
 					await goto('/');
 					const newChatButton = document.getElementById('new-chat-button');

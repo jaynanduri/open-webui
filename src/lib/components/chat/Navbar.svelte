@@ -150,7 +150,7 @@
 					</button>
 				</Tooltip>
 
-				<!-- <Tooltip content={$i18n.t('New Chat')}>
+				<Tooltip content={$i18n.t('New Chat')}>
 					<button
 						id="new-chat-button"
 						class=" flex {$showSidebar
@@ -165,7 +165,7 @@
 							<PencilSquare className=" size-5" strokeWidth="2" />
 						</div>
 					</button>
-				</Tooltip> -->
+				</Tooltip>
 
 				{#if $user !== undefined && $user !== null}
 					<UserMenu
