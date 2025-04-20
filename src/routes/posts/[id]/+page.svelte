@@ -45,6 +45,7 @@
 
 		try {
 			const response = await fetch(`/api/posts/${id}`);
+			console.log('Response:', response);
 			if (!response.ok) {
 				throw new Error(await response.text());
 			}

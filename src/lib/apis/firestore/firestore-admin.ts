@@ -25,5 +25,7 @@ const db = new Firestore({
   databaseId
 } );
 
+console.log("DB", db)
+
 export { db };
 
