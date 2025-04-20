@@ -136,4 +136,6 @@ opentelemetry-instrumentation-logging==0.51b0
 opentelemetry-instrumentation-httpx==0.51b0
 opentelemetry-instrumentation-aiohttp-client==0.51b0
 
-google-cloud-firestore
+## LinkedLens application - to connect to Firestore
+google-cloud-firestore==2.20.2
+firebase-admin==6.7.0
