@@ -94,8 +94,8 @@
 										class="hover:text-gray-500 dark:hover:text-gray-100 underline grow"
 										href={document?.metadata?.file_id
 											? `${WEBUI_API_BASE_URL}/files/${document?.metadata?.file_id}/content${document?.metadata?.page !== undefined ? `#page=${document.metadata.page + 1}` : ''}`
-											: document.source?.url?.includes('http')
-												? document.source.url
+											: document.metadata?.url?.includes('http')
+												? document.metadata?.url
 												: `#`}
 										target="_blank"
 									>

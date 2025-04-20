@@ -39,5 +39,11 @@ export default defineConfig({
 	},
 	worker: {
 		format: 'es'
+	},
+	server: {
+		fs: {
+			// Allow serving files from these directories
+			allow: ['..']
+		}
 	}
 });

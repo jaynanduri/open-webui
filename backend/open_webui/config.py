@@ -114,46 +114,143 @@ DEFAULT_CONFIG = {
         "prompt_suggestions": [
             {
                 "title": [
-                    "Help me study",
-                    "vocabulary for a college entrance exam",
+                    "In-demand programming languages",
+                    "for software engineering roles"
                 ],
-                "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option.",
+                "content": "What are the most in-demand programming languages for software engineering roles?",
             },
             {
                 "title": [
-                    "Give me ideas",
-                    "for what to do with my kids' art",
+                    "Marketing salary expectations",
+                    "with 5 years of experience"
                 ],
-                "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter.",
-            },
-            {
-                "title": ["Tell me a fun fact", "about the Roman Empire"],
-                "content": "Tell me a random fun fact about the Roman Empire",
+                "content": "I'm a marketing professional with 5 years of experience. What salary range should I expect?",
             },
             {
                 "title": [
-                    "Show me a code snippet",
-                    "of a website's sticky header",
+                    "Find job postings",
+                    "matching my data analysis and SQL skills"
                 ],
-                "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript.",
+                "content": "Show me job postings that match my skills in data analysis and SQL",
             },
             {
                 "title": [
-                    "Explain options trading",
-                    "if I'm familiar with buying and selling stocks",
+                    "UX designer hiring trends",
+                    "over the last 3 months"
                 ],
-                "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks.",
-            },
-            {
-                "title": ["Overcome procrastination", "give me tips"],
-                "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?",
+                "content": "What's the hiring trend for UX designers in the last 3 months?",
             },
             {
                 "title": [
-                    "Grammar check",
-                    "rewrite it for better readability ",
+                    "Career transition advice",
+                    "from teaching to instructional design"
                 ],
-                "content": 'Check the following sentence for grammar and clarity: "[sentence]". Rewrite it for better readability while maintaining its original meaning.',
+                "content": "I want to transition from teaching to instructional design. What skills should I highlight?",
+            },
+            {
+                "title": [
+                    "Frontend vs backend developers",
+                    "job requirement comparison"
+                ],
+                "content": "Compare job requirements for frontend vs backend developer positions",
+            },
+            {
+                "title": [
+                    "Cybersecurity certifications",
+                    "to be more competitive"
+                ],
+                "content": "What certifications would make me more competitive for cybersecurity roles?",
+            },
+            {
+                "title": [
+                    "Resume keywords",
+                    "for product management positions"
+                ],
+                "content": "Help me identify keywords to include in my resume for product management positions",
+            },
+            {
+                "title": [
+                    "Remote customer support",
+                    "what recruiters look for"
+                ],
+                "content": "What do recruiters look for in candidates for remote customer support roles?",
+            },
+            {
+                "title": [
+                    "Financial analyst interview",
+                    "questions to prepare for"
+                ],
+                "content": "I have an interview tomorrow for a financial analyst position. What questions should I prepare for?",
+            },
+            {
+                "title": [
+                    "Entry-level positions",
+                    "in healthcare administration"
+                ],
+                "content": "Are there any entry-level positions available in healthcare administration?",
+            },
+            {
+                "title": [
+                    "Biotech companies hiring",
+                    "research scientists"
+                ],
+                "content": "What companies in the biotech sector are currently hiring research scientists?",
+            },
+            {
+                "title": [
+                    "Addressing employment gaps",
+                    "on my resume"
+                ],
+                "content": "How should I address a 2-year employment gap in my resume?",
+            },
+            {
+                "title": [
+                    "Professional development",
+                    "for project management advancement"
+                ],
+                "content": "What professional development opportunities would help me advance in project management?",
+            },
+            {
+                "title": [
+                    "Benefits comparison",
+                    "startups vs established companies"
+                ],
+                "content": "Compare benefits packages typically offered by startups versus established companies",
+            },
+            {
+                "title": [
+                    "Networking strategies",
+                    "for non-profit organizations"
+                ],
+                "content": "What networking strategies are most effective for finding jobs in non-profit organizations?",
+            },
+            {
+                "title": [
+                    "Evaluating job offers",
+                    "factors to consider"
+                ],
+                "content": "I received two job offers. What factors should I consider when making my decision?",
+            },
+            {
+                "title": [
+                    "Military to corporate transition",
+                    "transferable leadership skills"
+                ],
+                "content": "What skills from my military background would translate well to corporate leadership roles?",
+            },
+            {
+                "title": [
+                    "Salary negotiation",
+                    "for senior software engineers"
+                ],
+                "content": "How can I negotiate a higher salary for a senior software engineer position?",
+            },
+            {
+                "title": [
+                    "Digital marketing",
+                    "typical career progression paths"
+                ],
+                "content": "What are typical career progression paths in digital marketing?"
             },
         ],
     },
@@ -256,7 +353,7 @@ class AppConfig:
     _redis: Optional[redis.Redis] = None
 
     def __init__(
-        self, redis_url: Optional[str] = None, redis_sentinels: Optional[list] = []
+            self, redis_url: Optional[str] = None, redis_sentinels: Optional[list] = []
     ):
         super().__setattr__("_state", {})
         if redis_url:
@@ -308,13 +405,13 @@ ENABLE_API_KEY = PersistentConfig(
     "ENABLE_API_KEY",
     "auth.api_key.enable",
     os.environ.get("ENABLE_API_KEY", "True").lower() == "true",
-)
+    )
 
 ENABLE_API_KEY_ENDPOINT_RESTRICTIONS = PersistentConfig(
     "ENABLE_API_KEY_ENDPOINT_RESTRICTIONS",
     "auth.api_key.endpoint_restrictions",
     os.environ.get("ENABLE_API_KEY_ENDPOINT_RESTRICTIONS", "False").lower() == "true",
-)
+    )
 
 API_KEY_ALLOWED_ENDPOINTS = PersistentConfig(
     "API_KEY_ALLOWED_ENDPOINTS",
@@ -336,14 +433,14 @@ ENABLE_OAUTH_SIGNUP = PersistentConfig(
     "ENABLE_OAUTH_SIGNUP",
     "oauth.enable_signup",
     os.environ.get("ENABLE_OAUTH_SIGNUP", "False").lower() == "true",
-)
+    )
 
 
 OAUTH_MERGE_ACCOUNTS_BY_EMAIL = PersistentConfig(
     "OAUTH_MERGE_ACCOUNTS_BY_EMAIL",
     "oauth.merge_accounts_by_email",
     os.environ.get("OAUTH_MERGE_ACCOUNTS_BY_EMAIL", "False").lower() == "true",
-)
+    )
 
 OAUTH_PROVIDERS = {}
 
@@ -491,13 +588,13 @@ ENABLE_OAUTH_ROLE_MANAGEMENT = PersistentConfig(
     "ENABLE_OAUTH_ROLE_MANAGEMENT",
     "oauth.enable_role_mapping",
     os.environ.get("ENABLE_OAUTH_ROLE_MANAGEMENT", "False").lower() == "true",
-)
+    )
 
 ENABLE_OAUTH_GROUP_MANAGEMENT = PersistentConfig(
     "ENABLE_OAUTH_GROUP_MANAGEMENT",
     "oauth.enable_group_mapping",
     os.environ.get("ENABLE_OAUTH_GROUP_MANAGEMENT", "False").lower() == "true",
-)
+    )
 
 OAUTH_ROLES_CLAIM = PersistentConfig(
     "OAUTH_ROLES_CLAIM",
@@ -550,9 +647,9 @@ def load_oauth_providers():
         }
 
     if (
-        MICROSOFT_CLIENT_ID.value
-        and MICROSOFT_CLIENT_SECRET.value
-        and MICROSOFT_CLIENT_TENANT_ID.value
+            MICROSOFT_CLIENT_ID.value
+            and MICROSOFT_CLIENT_SECRET.value
+            and MICROSOFT_CLIENT_TENANT_ID.value
     ):
 
         def microsoft_oauth_register(client):
@@ -595,9 +692,9 @@ def load_oauth_providers():
         }
 
     if (
-        OAUTH_CLIENT_ID.value
-        and OAUTH_CLIENT_SECRET.value
-        and OPENID_PROVIDER_URL.value
+            OAUTH_CLIENT_ID.value
+            and OAUTH_CLIENT_SECRET.value
+            and OPENID_PROVIDER_URL.value
     ):
 
         def oidc_oauth_register(client):
@@ -725,7 +822,7 @@ S3_BUCKET_NAME = os.environ.get("S3_BUCKET_NAME", None)
 S3_KEY_PREFIX = os.environ.get("S3_KEY_PREFIX", None)
 S3_ENDPOINT_URL = os.environ.get("S3_ENDPOINT_URL", None)
 S3_USE_ACCELERATE_ENDPOINT = (
-    os.environ.get("S3_USE_ACCELERATE_ENDPOINT", "False").lower() == "true"
+        os.environ.get("S3_USE_ACCELERATE_ENDPOINT", "False").lower() == "true"
 )
 S3_ADDRESSING_STYLE = os.environ.get("S3_ADDRESSING_STYLE", None)
 
@@ -762,7 +859,7 @@ ENABLE_DIRECT_CONNECTIONS = PersistentConfig(
     "ENABLE_DIRECT_CONNECTIONS",
     "direct.enable",
     os.environ.get("ENABLE_DIRECT_CONNECTIONS", "True").lower() == "true",
-)
+    )
 
 ####################################
 # OLLAMA_BASE_URL
@@ -772,7 +869,7 @@ ENABLE_OLLAMA_API = PersistentConfig(
     "ENABLE_OLLAMA_API",
     "ollama.enable",
     os.environ.get("ENABLE_OLLAMA_API", "True").lower() == "true",
-)
+    )
 
 OLLAMA_API_BASE_URL = os.environ.get(
     "OLLAMA_API_BASE_URL", "http://localhost:11434/api"
@@ -831,7 +928,7 @@ ENABLE_OPENAI_API = PersistentConfig(
     "ENABLE_OPENAI_API",
     "openai.enable",
     os.environ.get("ENABLE_OPENAI_API", "True").lower() == "true",
-)
+    )
 
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
@@ -916,7 +1013,7 @@ ENABLE_LOGIN_FORM = PersistentConfig(
     "ENABLE_LOGIN_FORM",
     "ui.ENABLE_LOGIN_FORM",
     os.environ.get("ENABLE_LOGIN_FORM", "True").lower() == "true",
-)
+    )
 
 
 DEFAULT_LOCALE = PersistentConfig(
@@ -934,31 +1031,144 @@ DEFAULT_PROMPT_SUGGESTIONS = PersistentConfig(
     "ui.prompt_suggestions",
     [
         {
-            "title": ["Help me study", "vocabulary for a college entrance exam"],
-            "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option.",
-        },
-        {
-            "title": ["Give me ideas", "for what to do with my kids' art"],
-            "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter.",
-        },
-        {
-            "title": ["Tell me a fun fact", "about the Roman Empire"],
-            "content": "Tell me a random fun fact about the Roman Empire",
-        },
-        {
-            "title": ["Show me a code snippet", "of a website's sticky header"],
-            "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript.",
+            "title": [
+                "In-demand programming languages",
+                "for software engineering roles"
+            ],
+            "content": "What are the most in-demand programming languages for software engineering roles?",
         },
         {
             "title": [
-                "Explain options trading",
-                "if I'm familiar with buying and selling stocks",
+                "Marketing salary expectations",
+                "with 5 years of experience"
             ],
-            "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks.",
+            "content": "I'm a marketing professional with 5 years of experience. What salary range should I expect?",
         },
         {
-            "title": ["Overcome procrastination", "give me tips"],
-            "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?",
+            "title": [
+                "Find job postings",
+                "matching my data analysis and SQL skills"
+            ],
+            "content": "Show me job postings that match my skills in data analysis and SQL",
+        },
+        {
+            "title": [
+                "UX designer hiring trends",
+                "over the last 3 months"
+            ],
+            "content": "What's the hiring trend for UX designers in the last 3 months?",
+        },
+        {
+            "title": [
+                "Career transition advice",
+                "from teaching to instructional design"
+            ],
+            "content": "I want to transition from teaching to instructional design. What skills should I highlight?",
+        },
+        {
+            "title": [
+                "Frontend vs backend developers",
+                "job requirement comparison"
+            ],
+            "content": "Compare job requirements for frontend vs backend developer positions",
+        },
+        {
+            "title": [
+                "Cybersecurity certifications",
+                "to be more competitive"
+            ],
+            "content": "What certifications would make me more competitive for cybersecurity roles?",
+        },
+        {
+            "title": [
+                "Resume keywords",
+                "for product management positions"
+            ],
+            "content": "Help me identify keywords to include in my resume for product management positions",
+        },
+        {
+            "title": [
+                "Remote customer support",
+                "what recruiters look for"
+            ],
+            "content": "What do recruiters look for in candidates for remote customer support roles?",
+        },
+        {
+            "title": [
+                "Financial analyst interview",
+                "questions to prepare for"
+            ],
+            "content": "I have an interview tomorrow for a financial analyst position. What questions should I prepare for?",
+        },
+        {
+            "title": [
+                "Entry-level positions",
+                "in healthcare administration"
+            ],
+            "content": "Are there any entry-level positions available in healthcare administration?",
+        },
+        {
+            "title": [
+                "Biotech companies hiring",
+                "research scientists"
+            ],
+            "content": "What companies in the biotech sector are currently hiring research scientists?",
+        },
+        {
+            "title": [
+                "Addressing employment gaps",
+                "on my resume"
+            ],
+            "content": "How should I address a 2-year employment gap in my resume?",
+        },
+        {
+            "title": [
+                "Professional development",
+                "for project management advancement"
+            ],
+            "content": "What professional development opportunities would help me advance in project management?",
+        },
+        {
+            "title": [
+                "Benefits comparison",
+                "startups vs established companies"
+            ],
+            "content": "Compare benefits packages typically offered by startups versus established companies",
+        },
+        {
+            "title": [
+                "Networking strategies",
+                "for non-profit organizations"
+            ],
+            "content": "What networking strategies are most effective for finding jobs in non-profit organizations?",
+        },
+        {
+            "title": [
+                "Evaluating job offers",
+                "factors to consider"
+            ],
+            "content": "I received two job offers. What factors should I consider when making my decision?",
+        },
+        {
+            "title": [
+                "Military to corporate transition",
+                "transferable leadership skills"
+            ],
+            "content": "What skills from my military background would translate well to corporate leadership roles?",
+        },
+        {
+            "title": [
+                "Salary negotiation",
+                "for senior software engineers"
+            ],
+            "content": "How can I negotiate a higher salary for a senior software engineer position?",
+        },
+        {
+            "title": [
+                "Digital marketing",
+                "typical career progression paths"
+            ],
+            "content": "What are typical career progression paths in digital marketing?"
         },
     ],
 )
@@ -976,95 +1186,95 @@ DEFAULT_USER_ROLE = PersistentConfig(
 )
 
 USER_PERMISSIONS_WORKSPACE_MODELS_ACCESS = (
-    os.environ.get("USER_PERMISSIONS_WORKSPACE_MODELS_ACCESS", "False").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_WORKSPACE_MODELS_ACCESS", "False").lower()
+        == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ACCESS = (
-    os.environ.get("USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ACCESS", "False").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ACCESS", "False").lower()
+        == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_PROMPTS_ACCESS = (
-    os.environ.get("USER_PERMISSIONS_WORKSPACE_PROMPTS_ACCESS", "False").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_WORKSPACE_PROMPTS_ACCESS", "False").lower()
+        == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS = (
-    os.environ.get("USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS", "False").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS", "False").lower() == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_MODELS_ALLOW_PUBLIC_SHARING = (
-    os.environ.get(
-        "USER_PERMISSIONS_WORKSPACE_MODELS_ALLOW_PUBLIC_SHARING", "False"
-    ).lower()
-    == "true"
+        os.environ.get(
+            "USER_PERMISSIONS_WORKSPACE_MODELS_ALLOW_PUBLIC_SHARING", "False"
+        ).lower()
+        == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ALLOW_PUBLIC_SHARING = (
-    os.environ.get(
-        "USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ALLOW_PUBLIC_SHARING", "False"
-    ).lower()
-    == "true"
+        os.environ.get(
+            "USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ALLOW_PUBLIC_SHARING", "False"
+        ).lower()
+        == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_PROMPTS_ALLOW_PUBLIC_SHARING = (
-    os.environ.get(
-        "USER_PERMISSIONS_WORKSPACE_PROMPTS_ALLOW_PUBLIC_SHARING", "False"
-    ).lower()
-    == "true"
+        os.environ.get(
+            "USER_PERMISSIONS_WORKSPACE_PROMPTS_ALLOW_PUBLIC_SHARING", "False"
+        ).lower()
+        == "true"
 )
 
 USER_PERMISSIONS_WORKSPACE_TOOLS_ALLOW_PUBLIC_SHARING = (
-    os.environ.get(
-        "USER_PERMISSIONS_WORKSPACE_TOOLS_ALLOW_PUBLIC_SHARING", "False"
-    ).lower()
-    == "true"
+        os.environ.get(
+            "USER_PERMISSIONS_WORKSPACE_TOOLS_ALLOW_PUBLIC_SHARING", "False"
+        ).lower()
+        == "true"
 )
 
 
 USER_PERMISSIONS_CHAT_CONTROLS = (
-    os.environ.get("USER_PERMISSIONS_CHAT_CONTROLS", "True").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_CHAT_CONTROLS", "True").lower() == "true"
 )
 
 USER_PERMISSIONS_CHAT_FILE_UPLOAD = (
-    os.environ.get("USER_PERMISSIONS_CHAT_FILE_UPLOAD", "True").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_CHAT_FILE_UPLOAD", "True").lower() == "true"
 )
 
 USER_PERMISSIONS_CHAT_DELETE = (
-    os.environ.get("USER_PERMISSIONS_CHAT_DELETE", "True").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_CHAT_DELETE", "True").lower() == "true"
 )
 
 USER_PERMISSIONS_CHAT_EDIT = (
-    os.environ.get("USER_PERMISSIONS_CHAT_EDIT", "True").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_CHAT_EDIT", "True").lower() == "true"
 )
 
 USER_PERMISSIONS_CHAT_TEMPORARY = (
-    os.environ.get("USER_PERMISSIONS_CHAT_TEMPORARY", "True").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_CHAT_TEMPORARY", "True").lower() == "true"
 )
 
 USER_PERMISSIONS_CHAT_TEMPORARY_ENFORCED = (
-    os.environ.get("USER_PERMISSIONS_CHAT_TEMPORARY_ENFORCED", "False").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_CHAT_TEMPORARY_ENFORCED", "False").lower()
+        == "true"
 )
 
 USER_PERMISSIONS_FEATURES_DIRECT_TOOL_SERVERS = (
-    os.environ.get("USER_PERMISSIONS_FEATURES_DIRECT_TOOL_SERVERS", "False").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_FEATURES_DIRECT_TOOL_SERVERS", "False").lower()
+        == "true"
 )
 
 USER_PERMISSIONS_FEATURES_WEB_SEARCH = (
-    os.environ.get("USER_PERMISSIONS_FEATURES_WEB_SEARCH", "True").lower() == "true"
+        os.environ.get("USER_PERMISSIONS_FEATURES_WEB_SEARCH", "True").lower() == "true"
 )
 
 USER_PERMISSIONS_FEATURES_IMAGE_GENERATION = (
-    os.environ.get("USER_PERMISSIONS_FEATURES_IMAGE_GENERATION", "True").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_FEATURES_IMAGE_GENERATION", "True").lower()
+        == "true"
 )
 
 USER_PERMISSIONS_FEATURES_CODE_INTERPRETER = (
-    os.environ.get("USER_PERMISSIONS_FEATURES_CODE_INTERPRETER", "True").lower()
-    == "true"
+        os.environ.get("USER_PERMISSIONS_FEATURES_CODE_INTERPRETER", "True").lower()
+        == "true"
 )
 
 
@@ -1107,14 +1317,14 @@ ENABLE_CHANNELS = PersistentConfig(
     "ENABLE_CHANNELS",
     "channels.enable",
     os.environ.get("ENABLE_CHANNELS", "False").lower() == "true",
-)
+    )
 
 
 ENABLE_EVALUATION_ARENA_MODELS = PersistentConfig(
     "ENABLE_EVALUATION_ARENA_MODELS",
     "evaluation.arena.enable",
     os.environ.get("ENABLE_EVALUATION_ARENA_MODELS", "True").lower() == "true",
-)
+    )
 EVALUATION_ARENA_MODELS = PersistentConfig(
     "EVALUATION_ARENA_MODELS",
     "evaluation.arena.models",
@@ -1138,26 +1348,26 @@ WEBHOOK_URL = PersistentConfig(
 ENABLE_ADMIN_EXPORT = os.environ.get("ENABLE_ADMIN_EXPORT", "True").lower() == "true"
 
 ENABLE_ADMIN_CHAT_ACCESS = (
-    os.environ.get("ENABLE_ADMIN_CHAT_ACCESS", "True").lower() == "true"
+        os.environ.get("ENABLE_ADMIN_CHAT_ACCESS", "True").lower() == "true"
 )
 
 ENABLE_COMMUNITY_SHARING = PersistentConfig(
     "ENABLE_COMMUNITY_SHARING",
     "ui.enable_community_sharing",
     os.environ.get("ENABLE_COMMUNITY_SHARING", "True").lower() == "true",
-)
+    )
 
 ENABLE_MESSAGE_RATING = PersistentConfig(
     "ENABLE_MESSAGE_RATING",
     "ui.enable_message_rating",
     os.environ.get("ENABLE_MESSAGE_RATING", "True").lower() == "true",
-)
+    )
 
 ENABLE_USER_WEBHOOKS = PersistentConfig(
     "ENABLE_USER_WEBHOOKS",
     "ui.enable_user_webhooks",
     os.environ.get("ENABLE_USER_WEBHOOKS", "True").lower() == "true",
-)
+    )
 
 
 def validate_cors_origins(origins):
@@ -1218,7 +1428,7 @@ SHOW_ADMIN_DETAILS = PersistentConfig(
     "SHOW_ADMIN_DETAILS",
     "auth.admin.show",
     os.environ.get("SHOW_ADMIN_DETAILS", "true").lower() == "true",
-)
+    )
 
 ADMIN_EMAIL = PersistentConfig(
     "ADMIN_EMAIL",
@@ -1325,26 +1535,26 @@ ENABLE_TAGS_GENERATION = PersistentConfig(
     "ENABLE_TAGS_GENERATION",
     "task.tags.enable",
     os.environ.get("ENABLE_TAGS_GENERATION", "True").lower() == "true",
-)
+    )
 
 ENABLE_TITLE_GENERATION = PersistentConfig(
     "ENABLE_TITLE_GENERATION",
     "task.title.enable",
     os.environ.get("ENABLE_TITLE_GENERATION", "True").lower() == "true",
-)
+    )
 
 
 ENABLE_SEARCH_QUERY_GENERATION = PersistentConfig(
     "ENABLE_SEARCH_QUERY_GENERATION",
     "task.query.search.enable",
     os.environ.get("ENABLE_SEARCH_QUERY_GENERATION", "True").lower() == "true",
-)
+    )
 
 ENABLE_RETRIEVAL_QUERY_GENERATION = PersistentConfig(
     "ENABLE_RETRIEVAL_QUERY_GENERATION",
     "task.query.retrieval.enable",
     os.environ.get("ENABLE_RETRIEVAL_QUERY_GENERATION", "True").lower() == "true",
-)
+    )
 
 
 QUERY_GENERATION_PROMPT_TEMPLATE = PersistentConfig(
@@ -1381,7 +1591,7 @@ ENABLE_AUTOCOMPLETE_GENERATION = PersistentConfig(
     "ENABLE_AUTOCOMPLETE_GENERATION",
     "task.autocomplete.enable",
     os.environ.get("ENABLE_AUTOCOMPLETE_GENERATION", "False").lower() == "true",
-)
+    )
 
 AUTOCOMPLETE_GENERATION_INPUT_MAX_LENGTH = PersistentConfig(
     "AUTOCOMPLETE_GENERATION_INPUT_MAX_LENGTH",
@@ -1488,7 +1698,7 @@ ENABLE_CODE_EXECUTION = PersistentConfig(
     "ENABLE_CODE_EXECUTION",
     "code_execution.enable",
     os.environ.get("ENABLE_CODE_EXECUTION", "True").lower() == "true",
-)
+    )
 
 CODE_EXECUTION_ENGINE = PersistentConfig(
     "CODE_EXECUTION_ENGINE",
@@ -1531,7 +1741,7 @@ ENABLE_CODE_INTERPRETER = PersistentConfig(
     "ENABLE_CODE_INTERPRETER",
     "code_interpreter.enable",
     os.environ.get("ENABLE_CODE_INTERPRETER", "True").lower() == "true",
-)
+    )
 
 CODE_INTERPRETER_ENGINE = PersistentConfig(
     "CODE_INTERPRETER_ENGINE",
@@ -1654,7 +1864,7 @@ QDRANT_API_KEY = os.environ.get("QDRANT_API_KEY", None)
 OPENSEARCH_URI = os.environ.get("OPENSEARCH_URI", "https://localhost:9200")
 OPENSEARCH_SSL = os.environ.get("OPENSEARCH_SSL", "true").lower() == "true"
 OPENSEARCH_CERT_VERIFY = (
-    os.environ.get("OPENSEARCH_CERT_VERIFY", "false").lower() == "true"
+        os.environ.get("OPENSEARCH_CERT_VERIFY", "false").lower() == "true"
 )
 OPENSEARCH_USERNAME = os.environ.get("OPENSEARCH_USERNAME", None)
 OPENSEARCH_PASSWORD = os.environ.get("OPENSEARCH_PASSWORD", None)
@@ -1690,7 +1900,7 @@ ENABLE_GOOGLE_DRIVE_INTEGRATION = PersistentConfig(
     "ENABLE_GOOGLE_DRIVE_INTEGRATION",
     "google_drive.enable",
     os.getenv("ENABLE_GOOGLE_DRIVE_INTEGRATION", "False").lower() == "true",
-)
+    )
 
 GOOGLE_DRIVE_CLIENT_ID = PersistentConfig(
     "GOOGLE_DRIVE_CLIENT_ID",
@@ -1708,7 +1918,7 @@ ENABLE_ONEDRIVE_INTEGRATION = PersistentConfig(
     "ENABLE_ONEDRIVE_INTEGRATION",
     "onedrive.enable",
     os.getenv("ENABLE_ONEDRIVE_INTEGRATION", "False").lower() == "true",
-)
+    )
 
 ONEDRIVE_CLIENT_ID = PersistentConfig(
     "ONEDRIVE_CLIENT_ID",
@@ -1757,7 +1967,7 @@ BYPASS_EMBEDDING_AND_RETRIEVAL = PersistentConfig(
     "BYPASS_EMBEDDING_AND_RETRIEVAL",
     "rag.bypass_embedding_and_retrieval",
     os.environ.get("BYPASS_EMBEDDING_AND_RETRIEVAL", "False").lower() == "true",
-)
+    )
 
 
 RAG_TOP_K = PersistentConfig(
@@ -1778,13 +1988,13 @@ ENABLE_RAG_HYBRID_SEARCH = PersistentConfig(
     "ENABLE_RAG_HYBRID_SEARCH",
     "rag.enable_hybrid_search",
     os.environ.get("ENABLE_RAG_HYBRID_SEARCH", "").lower() == "true",
-)
+    )
 
 RAG_FULL_CONTEXT = PersistentConfig(
     "RAG_FULL_CONTEXT",
     "rag.full_context",
     os.getenv("RAG_FULL_CONTEXT", "False").lower() == "true",
-)
+    )
 
 RAG_FILE_MAX_COUNT = PersistentConfig(
     "RAG_FILE_MAX_COUNT",
@@ -1810,7 +2020,7 @@ ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION = PersistentConfig(
     "ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION",
     "rag.enable_web_loader_ssl_verification",
     os.environ.get("ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION", "True").lower() == "true",
-)
+    )
 
 RAG_EMBEDDING_ENGINE = PersistentConfig(
     "RAG_EMBEDDING_ENGINE",
@@ -1822,7 +2032,7 @@ PDF_EXTRACT_IMAGES = PersistentConfig(
     "PDF_EXTRACT_IMAGES",
     "rag.pdf_extract_images",
     os.environ.get("PDF_EXTRACT_IMAGES", "False").lower() == "true",
-)
+    )
 
 RAG_EMBEDDING_MODEL = PersistentConfig(
     "RAG_EMBEDDING_MODEL",
@@ -1832,12 +2042,12 @@ RAG_EMBEDDING_MODEL = PersistentConfig(
 log.info(f"Embedding model set: {RAG_EMBEDDING_MODEL.value}")
 
 RAG_EMBEDDING_MODEL_AUTO_UPDATE = (
-    not OFFLINE_MODE
-    and os.environ.get("RAG_EMBEDDING_MODEL_AUTO_UPDATE", "True").lower() == "true"
+        not OFFLINE_MODE
+        and os.environ.get("RAG_EMBEDDING_MODEL_AUTO_UPDATE", "True").lower() == "true"
 )
 
 RAG_EMBEDDING_MODEL_TRUST_REMOTE_CODE = (
-    os.environ.get("RAG_EMBEDDING_MODEL_TRUST_REMOTE_CODE", "True").lower() == "true"
+        os.environ.get("RAG_EMBEDDING_MODEL_TRUST_REMOTE_CODE", "True").lower() == "true"
 )
 
 RAG_EMBEDDING_BATCH_SIZE = PersistentConfig(
@@ -1866,12 +2076,12 @@ if RAG_RERANKING_MODEL.value != "":
     log.info(f"Reranking model set: {RAG_RERANKING_MODEL.value}")
 
 RAG_RERANKING_MODEL_AUTO_UPDATE = (
-    not OFFLINE_MODE
-    and os.environ.get("RAG_RERANKING_MODEL_AUTO_UPDATE", "True").lower() == "true"
+        not OFFLINE_MODE
+        and os.environ.get("RAG_RERANKING_MODEL_AUTO_UPDATE", "True").lower() == "true"
 )
 
 RAG_RERANKING_MODEL_TRUST_REMOTE_CODE = (
-    os.environ.get("RAG_RERANKING_MODEL_TRUST_REMOTE_CODE", "True").lower() == "true"
+        os.environ.get("RAG_RERANKING_MODEL_TRUST_REMOTE_CODE", "True").lower() == "true"
 )
 
 
@@ -1960,7 +2170,7 @@ RAG_OLLAMA_API_KEY = PersistentConfig(
 
 
 ENABLE_RAG_LOCAL_WEB_FETCH = (
-    os.getenv("ENABLE_RAG_LOCAL_WEB_FETCH", "False").lower() == "true"
+        os.getenv("ENABLE_RAG_LOCAL_WEB_FETCH", "False").lower() == "true"
 )
 
 YOUTUBE_LOADER_LANGUAGE = PersistentConfig(
@@ -1980,7 +2190,7 @@ ENABLE_RAG_WEB_SEARCH = PersistentConfig(
     "ENABLE_RAG_WEB_SEARCH",
     "rag.web.search.enable",
     os.getenv("ENABLE_RAG_WEB_SEARCH", "False").lower() == "true",
-)
+    )
 
 RAG_WEB_SEARCH_ENGINE = PersistentConfig(
     "RAG_WEB_SEARCH_ENGINE",
@@ -1992,7 +2202,7 @@ BYPASS_WEB_SEARCH_EMBEDDING_AND_RETRIEVAL = PersistentConfig(
     "BYPASS_WEB_SEARCH_EMBEDDING_AND_RETRIEVAL",
     "rag.web.search.bypass_embedding_and_retrieval",
     os.getenv("BYPASS_WEB_SEARCH_EMBEDDING_AND_RETRIEVAL", "False").lower() == "true",
-)
+    )
 
 # You can provide a list of your own websites to filter after performing a web search.
 # This ensures the highest level of safety and reliability of the information sources.
@@ -2059,7 +2269,7 @@ SERPSTACK_HTTPS = PersistentConfig(
     "SERPSTACK_HTTPS",
     "rag.web.search.serpstack_https",
     os.getenv("SERPSTACK_HTTPS", "True").lower() == "true",
-)
+    )
 
 SERPER_API_KEY = PersistentConfig(
     "SERPER_API_KEY",
@@ -2163,7 +2373,7 @@ RAG_WEB_SEARCH_TRUST_ENV = PersistentConfig(
     "RAG_WEB_SEARCH_TRUST_ENV",
     "rag.web.search.trust_env",
     os.getenv("RAG_WEB_SEARCH_TRUST_ENV", "False").lower() == "true",
-)
+    )
 
 PLAYWRIGHT_WS_URI = PersistentConfig(
     "PLAYWRIGHT_WS_URI",
@@ -2203,13 +2413,13 @@ ENABLE_IMAGE_GENERATION = PersistentConfig(
     "ENABLE_IMAGE_GENERATION",
     "image_generation.enable",
     os.environ.get("ENABLE_IMAGE_GENERATION", "").lower() == "true",
-)
+    )
 
 ENABLE_IMAGE_PROMPT_GENERATION = PersistentConfig(
     "ENABLE_IMAGE_PROMPT_GENERATION",
     "image_generation.prompt.enable",
     os.environ.get("ENABLE_IMAGE_PROMPT_GENERATION", "true").lower() == "true",
-)
+    )
 
 AUTOMATIC1111_BASE_URL = PersistentConfig(
     "AUTOMATIC1111_BASE_URL",
@@ -2437,8 +2647,8 @@ WHISPER_MODEL = PersistentConfig(
 
 WHISPER_MODEL_DIR = os.getenv("WHISPER_MODEL_DIR", f"{CACHE_DIR}/whisper/models")
 WHISPER_MODEL_AUTO_UPDATE = (
-    not OFFLINE_MODE
-    and os.environ.get("WHISPER_MODEL_AUTO_UPDATE", "").lower() == "true"
+        not OFFLINE_MODE
+        and os.environ.get("WHISPER_MODEL_AUTO_UPDATE", "").lower() == "true"
 )
 
 # Add Deepgram configuration
@@ -2537,7 +2747,7 @@ ENABLE_LDAP = PersistentConfig(
     "ENABLE_LDAP",
     "ldap.enable",
     os.environ.get("ENABLE_LDAP", "false").lower() == "true",
-)
+    )
 
 LDAP_SERVER_LABEL = PersistentConfig(
     "LDAP_SERVER_LABEL",
@@ -2593,7 +2803,7 @@ LDAP_USE_TLS = PersistentConfig(
     "LDAP_USE_TLS",
     "ldap.server.use_tls",
     os.environ.get("LDAP_USE_TLS", "True").lower() == "true",
-)
+    )
 
 LDAP_CA_CERT_FILE = PersistentConfig(
     "LDAP_CA_CERT_FILE",

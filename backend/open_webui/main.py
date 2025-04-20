@@ -76,6 +76,7 @@ from open_webui.routers import (
     tools,
     users,
     utils,
+    linkedlens
 )
 
 from open_webui.routers.retrieval import (
@@ -341,7 +342,6 @@ from open_webui.env import (
     OFFLINE_MODE,
     ENABLE_OTEL,
 )
-
 
 from open_webui.utils.models import (
     get_all_models,
@@ -907,7 +907,7 @@ async def inspect_websocket(request: Request, call_next):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=CORS_ALLOW_ORIGIN,
+    allow_origins=["http://localhost:5173", "*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -916,6 +916,11 @@ app.add_middleware(
 
 app.mount("/ws", socket_app)
 
+app.include_router(
+    linkedlens.router,
+    prefix="/api",
+    tags=["linkedlens"],
+)
 
 app.include_router(ollama.router, prefix="/ollama", tags=["ollama"])
 app.include_router(openai.router, prefix="/openai", tags=["openai"])

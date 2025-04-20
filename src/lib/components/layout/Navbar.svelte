@@ -30,7 +30,10 @@
 
 	const i18n = getContext('i18n');
 
-	export let initNewChat: Function;
+	export let initNewChat: Function = () => {
+		console.warn('initNewChat function not provided');
+		// Default implementation or empty function
+	};
 	export let title: string = $WEBUI_NAME;
 	export let shareEnabled: boolean = false;
 

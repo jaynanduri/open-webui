@@ -8,8 +8,8 @@ import { Firestore } from 'firebase-admin/firestore';
 
 let app: App;
 
-const projectId = process.env.FIREBASE_PROJECT_ID;
-const databaseId = process.env.FIREBASE_DATABASE_ID;
+const projectId = process.env.GOOGLE_PROJECT_ID;
+const databaseId = process.env.DB_NAME;
 
 if (!getApps().length) {
   app = initializeApp({
@@ -24,6 +24,8 @@ const db = new Firestore({
   projectId,
   databaseId
 } );
+
+console.log("DB", db)
 
 export { db };
 
