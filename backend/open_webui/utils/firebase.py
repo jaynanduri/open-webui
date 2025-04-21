@@ -29,7 +29,7 @@ class FirestoreClient:
         """Initialize Firestore client with specific database"""
         project_id = os.environ.get("GOOGLE_PROJECT_ID")
         database_id = os.environ.get("DB_NAME")
-        cred_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+        #cred_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
         if not project_id or not database_id:
             logger.error("Missing required environment variables: GOOGLE_PROJECT_ID or DB_NAME")
@@ -38,17 +38,17 @@ class FirestoreClient:
         logger.info(f"Initializing Firestore: project_id={project_id}, database_id={database_id}")
 
         try:
-            if not cred_path or not os.path.exists(cred_path):
-                logger.error(f"GOOGLE_APPLICATION_CREDENTIALS not found at: {cred_path}")
-                return
+            # if not cred_path or not os.path.exists(cred_path):
+            #     logger.error(f"GOOGLE_APPLICATION_CREDENTIALS not found at: {cred_path}")
+            #     return
 
             # Load credentials
-            creds = service_account.Credentials.from_service_account_file(cred_path)
+            #creds = service_account.Credentials.from_service_account_file(cred_path)
 
             # Create Firestore client for specific database
             self.db = firestore.Client(
                 project=project_id,
-                credentials=creds,
+                #credentials=creds,
                 database=database_id
             )
             self.initialized = True
